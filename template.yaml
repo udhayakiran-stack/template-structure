@@ -29,9 +29,10 @@ spec:
       input:
         url: ./skeleton
         values:
-          name: ${{ parameters.name }}
+          appName: ${{ parameters.appName }}
           description: ${{ parameters.description }}
           owner: ${{ parameters.owner }}
+          namespace: ${{ parameters.namespace }}
 
     - id: publish
       action: publish:github

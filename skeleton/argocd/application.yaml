@@ -1,0 +1,6 @@
+metadata:
+  name: ${{ values.appName }}
+
+spec:
+  destination:
+    namespace: ${{ values.namespace }}

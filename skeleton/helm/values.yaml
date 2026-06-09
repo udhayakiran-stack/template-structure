@@ -1,0 +1,15 @@
+app:
+  name: {{ cookiecutter.appName }}
+
+image:
+  repository: ghcr.io/my-org/{{ cookiecutter.appName }}
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  host: {{ cookiecutter.appName }}.example.com
