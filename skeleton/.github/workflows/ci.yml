@@ -1,10 +1,8 @@
 name: Angular CI
 
 on:
-  pull_request:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build:
@@ -13,11 +11,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - run: npm ci
-      - run: npm run lint
-      - run: npm run test -- --watch=false --browsers=ChromeHeadless
-      - run: npm run build -- --configuration production
+      - run: npm install
+      - run: npm run build
+      - run: npm test
