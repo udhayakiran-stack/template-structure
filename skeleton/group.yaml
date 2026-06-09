@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: ${{ values.name }}
+  description: ${{ values.description }}
+spec:
+  type: team
+  profile:
+    displayName: ${{ values.displayName }}
+  children: []
