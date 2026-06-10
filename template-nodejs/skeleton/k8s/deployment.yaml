@@ -4,6 +4,9 @@ kind: Deployment
 metadata:
   name: ${{ values.name }}
 
+  labels:
+    backstage.io/kubernetes-id: ${{ values.name }}
+
 spec:
   replicas: 1
 
@@ -20,7 +23,8 @@ spec:
     spec:
       containers:
         - name: ${{ values.name }}
-          image: ghcr.io/udhayakiran-stack/${{ values.name }}:latest
-          imagePullPolicy: Always
+
+          image: us-central1-docker.pkg.dev/backstage-prod/apps/${{ values.name }}:latest
+
           ports:
             - containerPort: 3000
