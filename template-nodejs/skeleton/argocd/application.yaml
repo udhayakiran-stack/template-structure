@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: ${{ values.appName }}
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/udhayakiran-stack/${{ values.appName }}.git
+    targetRevision: main
+    path: k8s
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: ${{ values.appName }}
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: ${{ values.appName }}
+
+  template:
+    metadata:
+      labels:
+        app: ${{ values.appName }}
+
+    spec:
+      containers:
+      - name: ${{ values.appName }}
+        image: ghcr.io/udhayakiran-stack/${{ values.appName }}:latest
+
+        ports:
+        - containerPort: 3000

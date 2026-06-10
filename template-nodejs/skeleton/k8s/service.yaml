@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: ${{ values.appName }}
+
+spec:
+  selector:
+    app: ${{ values.appName }}
+
+  ports:
+  - port: 80
+    targetPort: 3000
+
+  type: ClusterIP
