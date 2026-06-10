@@ -4,7 +4,9 @@ kind: Component
 metadata:
   name: ${{ values.name }}
   description: ${{ values.description }}
-
+  annotations:
+    github.com/project-slug: udhayakiran-stack/${{ values.name  }}
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: ${{ values.owner }}
