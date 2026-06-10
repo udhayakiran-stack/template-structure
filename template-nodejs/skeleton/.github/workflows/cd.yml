@@ -20,18 +20,18 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ '${{ github.actor }}' }}
+          password: ${{ '${{ secrets.GITHUB_TOKEN }}' }}
 
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ghcr.io/udhayakiran-stack/${{ github.event.repository.name }}:latest
+          tags: ghcr.io/udhayakiran-stack/${{ '${{ github.event.repository.name }}' }}:latest
 
       - name: Deploy
         run: |
           kubectl apply -f k8s/
-          kubectl rollout restart deployment/${{ github.event.repository.name }}
-          kubectl rollout status deployment/${{ github.event.repository.name }}
+          kubectl rollout restart deployment/${{ '${{ github.event.repository.name }}' }}
+          kubectl rollout status deployment/${{ '${{ github.event.repository.name }}' }}
