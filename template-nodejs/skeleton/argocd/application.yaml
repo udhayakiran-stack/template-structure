@@ -2,13 +2,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 
 metadata:
-  name: ${{ values.appName }}
+  name: ${{ values.name }}
 
 spec:
   project: default
 
   source:
-    repoURL: https://github.com/udhayakiran-stack/${{ values.appName }}.git
+    repoURL: https://github.com/udhayakiran-stack/${{ values.name }}.git
     targetRevision: main
     path: k8s
 
