@@ -5,12 +5,9 @@ metadata:
   name: ${{ values.appName  }}
   description: ${{ values.description }}
   annotations:
-    github.com/project-slug: ${{ values.owner }}/${{ values.appName  }}
+    github.com/project-slug: udhayakiran-stack/${{ values.appName  }}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   lifecycle: production
   owner: ${{ values.owner }}
-  consumesApis:
-    - catalog-api
-    - techdocs-api
