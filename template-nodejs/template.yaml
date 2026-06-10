@@ -42,7 +42,7 @@ spec:
       name: Publish to GitHub
       action: publish:github
       input:
-        repoUrl: github.com?owner=udhayakiran-stack&repo=${{ parameters.appName }}
+        repoUrl: github.com?owner=udhayakiran-stack&repo=${{ parameters.name }}
         defaultBranch: main
 
     - id: register
